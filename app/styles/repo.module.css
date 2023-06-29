@@ -64,3 +64,15 @@
     margin-right: 0.5rem;
   }
   
+
+  /*--------Repodetails----------*/
+  .cont {
+    display: flex;
+    margin: 1rem 0;
+  }
+
+  .item{
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+  }
