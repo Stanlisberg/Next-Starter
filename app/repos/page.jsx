@@ -23,7 +23,7 @@ const reposPage = async () => {
           <ul className={styles.list}>
             {repos.map((repo) => (
               <li key={repo.id} className={styles.li}>
-                <Link href={`/code/repos/${repo.name}`}>
+                <Link href={`/repos/${repo.name}`}>
                   <h3>{repo.name}</h3>
                   <p>{repo.description}</p>
                   <div className={styles.details}>
