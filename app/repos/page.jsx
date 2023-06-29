@@ -1,24 +1,47 @@
+import React from "react";
+import { FaStar, FaCodeBranch, FaEye } from 'react-icons/fa';
+import styles from '../styles/repo.module.css'
 
-import React from 'react'
-
-const reposPage = () => {
-
-  const fetchRepos = async() => {
-    const response = await fetch('http://api.github.com/users/bradtraversy/repos')
-    const data = await response.json()
-
-    return data;
-  }
-
-    fetchRepos()
+const fetchRepos = async () => {
+  const res = await fetch("http://api.github.com/users/bradtraversy/repos")
   
-  return (
-    <div>
-        {data?.map((item) => (
-            <p style={{backgroundColor: 'red'}}>{item.name}</p>
-        ))}
-    </div>
-  )
-}
+  await new Promise((resolve) => {
+    setTimeout(resolve, 2000)
+  })
+  const data = await res.json()
+  return data;
 
-export default reposPage
+};
+
+const reposPage = async () => {
+    const repos= await fetchRepos();
+
+    return (
+        <div className={styles.repos-container}>
+          <h2>Repositories</h2>
+          <ul className={styles.repo-list}>
+            {repos.map((repo) => (
+              <li key={repo.id}>
+                <Link href={`/code/repos/${repo.name}`}>
+                  <h3>{repo.name}</h3>
+                  <p>{repo.description}</p>
+                  <div className={styles.repo-details}>
+                    <span>
+                      <FaStar /> {repo.stargazers_count}
+                    </span>
+                    <span>
+                      <FaCodeBranch /> {repo.forks_count}
+                    </span>
+                    <span>
+                      <FaEye /> {repo.watchers_count}
+                    </span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+    );
+};
+
+export default reposPage;

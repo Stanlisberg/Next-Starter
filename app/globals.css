@@ -87,7 +87,7 @@ body {
   max-width: 800px;
   text-align: center;
   margin: 0 auto;
-  height: 100vh;
+  min-height: 100vh;
   outline: none;
   border: 1px solid black;
   position: relative;

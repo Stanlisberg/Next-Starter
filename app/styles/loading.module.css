@@ -3,13 +3,39 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: lightcyan;
+    opacity: 0.5;
   }
   
   .spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 4px solid rgba(0, 0, 0, 0.40);
+    border-right-color: blue;
     border-radius: 50%;
     width: 40px;
     height: 40px;
     animation: spin 1s linear infinite;
+  }
+
+  .spinner2 {
+    border-left: 4px solid rgba(0, 0, 0, 0.40);
+    border-left-color: blue;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: reverse 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes reverse {
+    to {
+      transform: rotate(360deg);
+    }
   }
