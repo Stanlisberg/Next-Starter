@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import styles from '../app/styles/repo.module.css'
 
 const fetchRepoContent = async(name) => {
 
@@ -17,11 +18,11 @@ export const RepoDirectory = async ({ name }) => {
 
   return (
     <>
-        <h3>Directories</h3>
-        <ul>
+        <h3 className={styles.ulh3}>Directories</h3>
+        <ul className={styles.ul}>
             {dirs.map((item) => (
-            <li key={item.path} style={{color: 'red'}}>
-                <Link href={`/repos/${name}/${item.path}`}>
+            <li key={item.path} className={styles.listItem}>
+                <Link className={styles.dirLink} href={`/repos/${name}/${item.path}`}>
                     {item.name}
                 </Link>
             </li>
